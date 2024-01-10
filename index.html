@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Map with State Select</title>
+    <!-- Leaflet CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <label for="stateSelect">Select a State:</label>
+    <select id="stateSelect" onchange="updateMap()">
+        <option value="default">Select a State</option>
+<option value="Alaska">Alaska</option>
+<option value="Alabama">Alabama</option>
+<option value="Arkansas">Arkansas</option>
+<option value="Arizona">Arizona</option>
+<option value="California">California</option>
+<option value="Colorado">Colorado</option>
+<option value="Connecticut">Connecticut</option>
+<option value="District of Columbia">District of Columbia</option>
+<option value="Delaware">Delaware</option>
+<option value="Florida">Florida</option>
+<option value="Georgia">Georgia</option>
+<option value="Hawaii">Hawaii</option>
+<option value="Iowa">Iowa</option>
+<option value="Idaho">Idaho</option>
+<option value="Illinois">Illinois</option>
+<option value="Indiana">Indiana</option>
+<option value="Kansas">Kansas</option>
+<option value="Kentucky">Kentucky</option>
+<option value="Louisiana">Louisiana</option>
+<option value="Massachusetts">Massachusetts</option>
+<option value="Maryland">Maryland</option>
+<option value="Maine">Maine</option>
+<option value="Michigan">Michigan</option>
+<option value="Minnesota">Minnesota</option>
+<option value="Missouri">Missouri</option>
+<option value="Mississippi">Mississippi</option>
+<option value="Montana">Montana</option>
+<option value="North Carolina">North Carolina</option>
+<option value="North Dakota">North Dakota</option>
+<option value="Nebraska">Nebraska</option>
+<option value="New Hampshire">New Hampshire</option>
+<option value="New Jersey">New Jersey</option>
+<option value="New Mexico">New Mexico</option>
+<option value="Nevada">Nevada</option>
+<option value="New York">New York</option>
+<option value="Ohio">Ohio</option>
+<option value="Oklahoma">Oklahoma</option>
+<option value="Oregon">Oregon</option>
+<option value="Pennsylvania">Pennsylvania</option>
+<option value="Puerto Rico">Puerto Rico</option>
+<option value="Rhode Island">Rhode Island</option>
+<option value="South Carolina">South Carolina</option>
+<option value="South Dakota">South Dakota</option>
+<option value="Tennessee">Tennessee</option>
+<option value="Texas">Texas</option>
+<option value="Utah">Utah</option>
+<option value="Virginia">Virginia</option>
+<option value="Vermont">Vermont</option>
+<option value="Washington">Washington</option>
+<option value="Wisconsin">Wisconsin</option>
+<option value="West Virginia">West Virginia</option>
+<option value="Wyoming">Wyoming</option>
+    </select>
+</div>
+
+<div id="map"></div>
+
+<script>
+    var map = L.map('map').setView([37.8, -96], 4);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    var data = [{'state_code': 'AK', 'latitude': 63.588753, 'longitude': -154.493062, 'state': 'Alaska'}, {'state_code': 'AL', 'latitude': 32.318231, 'longitude': -86.902298, 'state': 'Alabama'}, {'state_code': 'AR', 'latitude': 35.20105, 'longitude': -91.831833, 'state': 'Arkansas'}, {'state_code': 'AZ', 'latitude': 34.048928, 'longitude': -111.093731, 'state': 'Arizona'}, {'state_code': 'CA', 'latitude': 36.778261, 'longitude': -119.417932, 'state': 'California'}, {'state_code': 'CO', 'latitude': 39.550051, 'longitude': -105.782067, 'state': 'Colorado'}, {'state_code': 'CT', 'latitude': 41.603221, 'longitude': -73.087749, 'state': 'Connecticut'}, {'state_code': 'DC', 'latitude': 38.905985, 'longitude': -77.033418, 'state': 'District of Columbia'}, {'state_code': 'DE', 'latitude': 38.910832, 'longitude': -75.52767, 'state': 'Delaware'}, {'state_code': 'FL', 'latitude': 27.664827, 'longitude': -81.515754, 'state': 'Florida'}, {'state_code': 'GA', 'latitude': 32.157435, 'longitude': -82.907123, 'state': 'Georgia'}, {'state_code': 'HI', 'latitude': 19.898682, 'longitude': -155.665857, 'state': 'Hawaii'}, {'state_code': 'IA', 'latitude': 41.878003, 'longitude': -93.097702, 'state': 'Iowa'}, {'state_code': 'ID', 'latitude': 44.068202, 'longitude': -114.742041, 'state': 'Idaho'}, {'state_code': 'IL', 'latitude': 40.633125, 'longitude': -89.398528, 'state': 'Illinois'}, {'state_code': 'IN', 'latitude': 40.551217, 'longitude': -85.602364, 'state': 'Indiana'}, {'state_code': 'KS', 'latitude': 39.011902, 'longitude': -98.484246, 'state': 'Kansas'}, {'state_code': 'KY', 'latitude': 37.839333, 'longitude': -84.270018, 'state': 'Kentucky'}, {'state_code': 'LA', 'latitude': 31.244823, 'longitude': -92.145024, 'state': 'Louisiana'}, {'state_code': 'MA', 'latitude': 42.407211, 'longitude': -71.382437, 'state': 'Massachusetts'}, {'state_code': 'MD', 'latitude': 39.045755, 'longitude': -76.641271, 'state': 'Maryland'}, {'state_code': 'ME', 'latitude': 45.253783, 'longitude': -69.445469, 'state': 'Maine'}, {'state_code': 'MI', 'latitude': 44.314844, 'longitude': -85.602364, 'state': 'Michigan'}, {'state_code': 'MN', 'latitude': 46.729553, 'longitude': -94.6859, 'state': 'Minnesota'}, {'state_code': 'MO', 'latitude': 37.964253, 'longitude': -91.831833, 'state': 'Missouri'}, {'state_code': 'MS', 'latitude': 32.354668, 'longitude': -89.398528, 'state': 'Mississippi'}, {'state_code': 'MT', 'latitude': 46.879682, 'longitude': -110.362566, 'state': 'Montana'}, {'state_code': 'NC', 'latitude': 35.759573, 'longitude': -79.0193, 'state': 'North Carolina'}, {'state_code': 'ND', 'latitude': 47.551493, 'longitude': -101.002012, 'state': 'North Dakota'}, {'state_code': 'NE', 'latitude': 41.492537, 'longitude': -99.901813, 'state': 'Nebraska'}, {'state_code': 'NH', 'latitude': 43.193852, 'longitude': -71.572395, 'state': 'New Hampshire'}, {'state_code': 'NJ', 'latitude': 40.058324, 'longitude': -74.405661, 'state': 'New Jersey'}, {'state_code': 'NM', 'latitude': 34.97273, 'longitude': -105.032363, 'state': 'New Mexico'}, {'state_code': 'NV', 'latitude': 38.80261, 'longitude': -116.419389, 'state': 'Nevada'}, {'state_code': 'NY', 'latitude': 43.299428, 'longitude': -74.217933, 'state': 'New York'}, {'state_code': 'OH', 'latitude': 40.417287, 'longitude': -82.907123, 'state': 'Ohio'}, {'state_code': 'OK', 'latitude': 35.007752, 'longitude': -97.092877, 'state': 'Oklahoma'}, {'state_code': 'OR', 'latitude': 43.804133, 'longitude': -120.554201, 'state': 'Oregon'}, {'state_code': 'PA', 'latitude': 41.203322, 'longitude': -77.194525, 'state': 'Pennsylvania'}, {'state_code': 'PR', 'latitude': 18.220833, 'longitude': -66.590149, 'state': 'Puerto Rico'}, {'state_code': 'RI', 'latitude': 41.580095, 'longitude': -71.477429, 'state': 'Rhode Island'}, {'state_code': 'SC', 'latitude': 33.836081, 'longitude': -81.163725, 'state': 'South Carolina'}, {'state_code': 'SD', 'latitude': 43.969515, 'longitude': -99.901813, 'state': 'South Dakota'}, {'state_code': 'TN', 'latitude': 35.517491, 'longitude': -86.580447, 'state': 'Tennessee'}, {'state_code': 'TX', 'latitude': 31.968599, 'longitude': -99.901813, 'state': 'Texas'}, {'state_code': 'UT', 'latitude': 39.32098, 'longitude': -111.093731, 'state': 'Utah'}, {'state_code': 'VA', 'latitude': 37.431573, 'longitude': -78.656894, 'state': 'Virginia'}, {'state_code': 'VT', 'latitude': 44.558803, 'longitude': -72.577841, 'state': 'Vermont'}, {'state_code': 'WA', 'latitude': 47.751074, 'longitude': -120.740139, 'state': 'Washington'}, {'state_code': 'WI', 'latitude': 43.78444, 'longitude': -88.787868, 'state': 'Wisconsin'}, {'state_code': 'WV', 'latitude': 38.597626, 'longitude': -80.454903, 'state': 'West Virginia'}, {'state_code': 'WY', 'latitude': 43.075968, 'longitude': -107.290284, 'state': 'Wyoming'}];
+
+    // Function to update the map based on the selected state
+    function updateMap() {
+        var selectedState = document.getElementById('stateSelect').value;
+
+        // Check if a valid state is selected
+        if (selectedState !== 'default') {
+            // Filter data for the selected state
+            var selectedData = data.find(item => item.state === selectedState);
+
+            // Set the map view to the selected state's coordinates
+            map.setView([selectedData.latitude, selectedData.longitude], 8);
+        }
+    }
+</script>
+
+</body>
+</html>
