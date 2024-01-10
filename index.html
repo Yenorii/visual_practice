@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <style>
         #map {
-            height: 400px;
+            height: 600px;
         }
     </style>
 </head>
@@ -94,7 +94,7 @@
             var selectedData = data.find(item => item.state === selectedState);
 
             // Set the map view to the selected state's coordinates
-            map.setView([selectedData.latitude, selectedData.longitude], 8);
+            map.setView([selectedData.latitude, selectedData.longitude], 7);
         }
     }
 </script>
